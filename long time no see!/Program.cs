@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace long_time_no_see_
 {
@@ -12,17 +12,24 @@ namespace long_time_no_see_
             //درخواست عدد برای مشخص کردن بازه ی دامنه
             Console.WriteLine("Enter The Number of Domain :");
             int Domain = Convert.ToInt32(Console.ReadLine());
-            int s = 0;
-            int j = 0;
-            int kh = 0;
+            //مقسوم
+            int Divisor = 0;
+            //شمارش گر 
+            int Counter = 0;
+            //خارج قسمت
+            int Quotient = 0;
+            //شمارش اعداد از صفر تا عدد وارد شده در متغیر Domain
             for (int i = 0; i < Domain; i++)
             {
-                s++;
-                if (s%Number==0)
+                //اضافه کردن یک عدد به مقدار قبلیِ مقسوم(متغیر Divisor)
+                Divisor++;
+                //اگر باقی مانده صفر بود کارهای زیر را انجام دهد
+                if (Divisor%Number==0)
                 {
-                    kh = s / Number;
-
-                    if (s < 10)
+                    //به دست آوردن خارج قسمت
+                    Quotient = Divisor / Number;
+                    //اگر باقی مانده از 10 کوچک تر بود نتیجه زیر را نشان بده
+                    if (Divisor < 10)
                     {
 Console.Write(@"
  {0}  |  {1}
@@ -30,8 +37,9 @@ Console.Write(@"
     |   {2}
     |
     |
-", s, Number,kh);
+", Divisor, Number,Quotient);
                     }
+                    //در غیر اینصورت نتیجه زیر را نشان بده
                     else
                     {
                         
@@ -41,12 +49,14 @@ Console.Write(@"
     |  {2}
     |
     |
-", s, Number,kh);
+", Divisor, Number,Quotient);
                     }
-                    j++;
+                    //به ازای چرخش هر حلقه یه مقدار به متغیر شمارش گر اضافه کن
+                    Counter++;
                 }
             }
-            Console.WriteLine("There is {0}",j);
+            //نمایش تعداد اعداد بخش پذیر در بازه مشخص شده
+            Console.WriteLine("There is {0} Divisible between 0 and {1}",Counter,Domain);
             Console.ReadKey();
         }
     }
